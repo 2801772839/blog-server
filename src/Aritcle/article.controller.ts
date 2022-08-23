@@ -5,7 +5,7 @@ import { ArticleService } from './article.service';
 export class ArticleController {
   constructor(private readonly articleService: ArticleService) {}
 
-  @Get('/content')
+  @Get('/article')
   getHello(): string {
     return this.articleService.getHello();
   }

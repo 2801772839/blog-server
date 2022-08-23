@@ -10,11 +10,11 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle('欢迎来到我的博客后台 API管理页面')
     .setDescription('Welcome to the Blog API')
-    .setVersion('1.0')
+    .setVersion('0.1')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
-
+  app.enableCors();
   await app.listen(3000);
 }
 bootstrap();

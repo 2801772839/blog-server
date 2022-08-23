@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './entity/User';
-import { Article } from './entity/Article';
 import { UserModule } from './User/user.module';
 import { ArticleModule } from './Aritcle/article.module';
 
@@ -16,7 +14,7 @@ import { ArticleModule } from './Aritcle/article.module';
       username: 'root',
       password: '123456',
       database: 'blog_serve',
-      entities: [User, Article],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     UserModule,

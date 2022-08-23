@@ -1,19 +1,27 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  username: number;
+  @Column({ type: 'varchar', name: 'username', comment: '用户名' })
+  username: string;
 
-  @Column()
-  password: number;
-
-  @Column()
+  @Column({ type: 'varchar', name: 'nickname', comment: '昵称' })
   nickname: string;
 
-  @Column()
+  @Column({ type: 'varchar', name: 'password', comment: '密码' })
+  password: string;
+
+  @Column({ type: 'varchar', name: 'phone', comment: '手机号' })
   phone: number;
+
+  @Column({
+    type: 'varchar',
+    name: 'salt',
+    comment: '密码盐',
+    default: 'anysg',
+  })
+  salt!: string;
 }
