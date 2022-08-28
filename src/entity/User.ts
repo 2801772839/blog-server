@@ -1,11 +1,4 @@
-import {
-  BaseEntity,
-  BeforeInsert,
-  Column,
-  Entity,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import * as bcryptjs from 'bcrypt';
+import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User extends BaseEntity {
@@ -23,11 +16,6 @@ export class User extends BaseEntity {
 
   @Column({ type: 'varchar', name: 'phone', comment: '手机号' })
   phone: number;
-  @Column({ type: 'varchar', name: 'phone', comment: '校验' })
-  token: string;
-
-  @BeforeInsert()
-  async encryptPwd() {
-    this.password = bcryptjs.hashSync(this.password, 10);
-  }
+  @Column({ type: 'varchar', name: 'token', comment: '校验' })
+  token!: string;
 }
