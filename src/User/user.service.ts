@@ -18,6 +18,7 @@ export class UserService {
   async findOne(id: number) {
     return await this.UserRepository.findBy({ id });
   }
+
   async findUser(username: string) {
     await this.UserRepository.query(
       `select * from user where username=${username}`,
@@ -45,6 +46,6 @@ export class UserService {
   }
 
   async finAll() {
-    return await this.UserRepository.find();
+    return this.UserRepository.find();
   }
 }

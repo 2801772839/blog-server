@@ -8,6 +8,7 @@ import { DeleteUserDto } from './Dto/deleteUser.dto';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
   /**
    * 用户管理-增加用户
    */
@@ -24,14 +25,24 @@ export class UserController {
   findOne(@Param('id') id: number) {
     return this.userService.findOne(+id);
   }
+
   @Post(':username')
   findUser(@Param('username') username: string) {
     return this.userService.findUser(String(username));
   }
+
+  /**
+   * 查询全部用户
+   */
   @Get('list')
   findAll() {
     return this.userService.finAll();
   }
+
+  /**
+   * 登录
+   */
+
   /**
    * 用户管理-删除用户
    */
