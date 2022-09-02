@@ -1,6 +1,7 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/entity/User';
 import { InsertResult, Repository } from 'typeorm';
+import { JwtService } from '@nestjs/jwt';
 
 export class AuthService {
   constructor(
@@ -19,6 +20,7 @@ export class AuthService {
 
   register(user: any): Promise<InsertResult> {
     const newUser = new User();
+
     newUser.username = user.username;
     newUser.password = user.password;
     newUser.nickname = user.username;

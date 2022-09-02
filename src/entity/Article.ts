@@ -17,8 +17,20 @@ export class Article {
   @Column({ type: 'varchar', name: 'content', comment: '内容' })
   content: string;
 
-  @Column({ type: 'varchar', name: 'author', comment: '作者' })
+  @Column({ name: 'like_count', comment: '点赞', default: 0 })
+  like_count: number;
+
+  @Column({ name: 'read_count', comment: '浏览量', default: 0 })
+  read_count: number;
+
+  @Column({ type: 'varchar', name: 'author', comment: '发表用户' })
   author: string;
+
+  @Column({ type: 'varchar', name: 'category', comment: '类别' })
+  category: string;
+
+  @Column({ type: 'varchar', name: 'tag', comment: '标签' })
+  tag: string;
 
   @CreateDateColumn({ name: 'create_time' })
   createTime!: Date;
